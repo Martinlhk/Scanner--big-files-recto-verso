@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recto Verso Scanner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <h1 id="app-title">Recto Verso Scanner</h1>
+        <p class="order-preview" id="order-preview">Load matching front and back PDFs to preview the final order.</p>
+        <section class="import-panel" aria-label="PDF import">
+          <div class="upload-grid">
+            <div class="import-box">
+              <label class="upload-card" for="front-pdf">
+                <span class="upload-copy">
+                  <strong>Front sides PDF</strong>
+                  <span id="front-file">Choose PDF</span>
+                </span>
+                <input id="front-pdf" type="file" accept="application/pdf,.pdf" />
+              </label>
+              <label class="checkbox-row">
+                <input id="reverse-front" type="checkbox" />
+                Reverse front PDF page order
+              </label>
+            </div>
+
+            <div class="import-box">
+              <label class="upload-card" for="back-pdf">
+                <span class="upload-copy">
+                  <strong>Back sides PDF</strong>
+                  <span id="back-file">Choose PDF</span>
+                </span>
+                <input id="back-pdf" type="file" accept="application/pdf,.pdf" />
+              </label>
+              <label class="checkbox-row">
+                <input id="reverse-back" type="checkbox" checked />
+                Reverse back PDF page order
+              </label>
+            </div>
+          </div>
+
+          <div class="message warning hidden" id="count-warning"></div>
+        </section>
+
+        <p class="config-preview hidden" id="config-preview" aria-live="polite"></p>
+        <br>
+        <button type="button" class="primary-action" id="download-button" disabled>
+          Download merged PDF
+        </button>
+      </section>
+    </main>
+
+    <script src="./vendor/pdf-lib.min.js"></script>
+    <script src="./pdf-ordering.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
